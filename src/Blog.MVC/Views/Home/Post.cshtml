@@ -1,0 +1,37 @@
+﻿@model Blog.ApplicationCore.Entites.Publication
+
+@{
+    ViewData["Title"] = "Post";
+}
+
+
+<div>
+    <a asp-action="Index">Retourner à la liste des billets</a>
+</div>
+<br/>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          
+               
+            <div class="blog-post">
+
+            <h2 class="blog-post-title">@Model.Titre</h2>
+            <p class="blog-post-meta">@Model.DatePublication.ToString("dd MMMM yyyy") par @Model.Auteur.Nom</p>
+
+            @Html.Raw(Model.Contenu)
+           </div><!-- /.blog-post -->
+         
+        </div><!-- /.blog-main -->
+
+        
+
+      </div><!-- /.row -->
+
+  </main><!-- /.container -->
+
+    <form asp-action="Supprimer">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-action="Index">Retourner à la liste des billets</a>
+    </form>

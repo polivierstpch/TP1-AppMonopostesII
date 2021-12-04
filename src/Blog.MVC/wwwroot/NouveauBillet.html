@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nouveau - Blog.MVC</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+</head>
+<body>
+
+ <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <a class="text-muted" href="#">S'abonner</a>
+          </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="/">Logo du blog</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-sm btn-outline-secondary" href="/Home/Nouveau">Publier un nouveau billet de blog</a>
+          </div>
+        </div>
+      </header>
+      
+</div>   
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            
+
+<h4>Nouveau billet de blog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="/Home/Nouveau" method="post">
+            
+            <div class="form-group">
+                <label class="control-label" for="Titre">Titre</label>
+                <input class="form-control" type="text" id="Titre" name="Titre" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Titre" data-valmsg-replace="true"></span>
+            </div>
+           
+            <div class="form-group">
+                <label class="control-label" for="Auteur">Auteur</label>
+
+                <select class="form-control" id="Auteur" name="Auteur">
+                    <option>Choisir un auteur</option>
+                <option>Hinault</option>
+<option>Marc</option>
+<option>Roger</option>
+</select>
+                <span class="text-danger field-validation-valid" data-valmsg-for="Auteur" data-valmsg-replace="true"></span>
+            </div>
+
+             <div class="form-group">
+                <label class="control-label" for="Categorie">Cat&#xE9;gorie</label>
+                <select class="form-control" id="Categorie" name="Categorie">
+                    <option>Choisir une catégorie</option>
+                <option>Web</option>
+<option>Cloud</option>
+<option>Securit&#xE9;</option>
+</select>
+                <span class="text-danger field-validation-valid" data-valmsg-for="Categorie" data-valmsg-replace="true"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="DatePublication">Date de publication</label>
+                <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Date de publication field is required." id="DatePublication" name="DatePublication" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="DatePublication" data-valmsg-replace="true"></span>
+            </div>
+         
+            <div class="form-group">
+                <label class="control-label" for="UrlSlug">URL SEO</label>
+                <input class="form-control" type="text" id="UrlSlug" name="UrlSlug" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="UrlSlug" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Image">Image</label>
+                <input class="form-control" type="file" id="Image" name="Image" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Image" data-valmsg-replace="true"></span>
+            </div>
+
+             <div class="form-group">
+                <label class="control-label" for="Resume">Resum&#xE9;</label>
+                <input class="form-control" type="text" id="Resume" name="Resume" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Resume" data-valmsg-replace="true"></span>
+            </div>
+
+              <div class="form-group">
+                <label class="control-label" for="Contenu">Contenu</label>
+                <textarea class="form-control" id="Contenu" name="Contenu">
+</textarea>
+                <span class="text-danger field-validation-valid" data-valmsg-for="Contenu" data-valmsg-replace="true"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Créer" class="btn btn-primary" />
+            </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8FVvPimw3K5BtezdSlsPoo6JFzEM-phlGjG9GFFZzExWUeImQ5CM5IyohflQJdVzCfJNi8KHorT9naidOL9Emf7YGHllca61zx01J9orfUz3GaJ2qDZWX3-G9rWI7MInGRjwQNUCccaTC6P13ZIEyn8" /></form>
+    </div>
+</div>
+
+<div>
+    <a href="/">Retourner à la liste des billets</a>
+</div>
+
+
+        </main>
+    </div>
+
+    <footer class="blog-footer">
+        <div class="container">
+            &copy; 2021 - Blog.MVC
+        </div>
+    </footer>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+    
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>

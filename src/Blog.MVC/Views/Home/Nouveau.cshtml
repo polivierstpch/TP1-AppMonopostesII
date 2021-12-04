@@ -1,0 +1,83 @@
+﻿@model Blog.ApplicationCore.Entites.Publication
+
+@{
+    ViewData["Title"] = "Nouveau";
+
+    @*var auteurs = new SelectList(ViewBag.Auteurs);
+
+    var categories = new SelectList(ViewBag.Categories);*@
+}
+
+<h4>Nouveau billet de blog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Nouveau" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Titre" class="control-label"></label>
+                <input asp-for="Titre" class="form-control" />
+                <span asp-validation-for="Titre" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="AuteurId" class="control-label"></label>
+
+                <select asp-for="AuteurId" class="form-control" asp-items="@ViewBag.Auteurs">
+                    <option>Choisir un auteur</option>
+                </select>
+                <span asp-validation-for="AuteurId" class="text-danger"></span>
+            </div>
+
+             <div class="form-group">
+                <label asp-for="CategorieId" class="control-label"></label>
+                <select asp-for="CategorieId" class="form-control" asp-items="@ViewBag.Categories">
+                    <option>Choisir une catégorie</option>
+                </select>
+                <span asp-validation-for="CategorieId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DatePublication" class="control-label"></label>
+                <input type="date" asp-for="DatePublication" class="form-control" />
+                <span asp-validation-for="DatePublication" class="text-danger"></span>
+            </div>
+         
+            <div class="form-group">
+                <label asp-for="UrlSlug" class="control-label"></label>
+                <input asp-for="UrlSlug" class="form-control" />
+                <span asp-validation-for="UrlSlug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Image</label>
+                <input type="file" name="Image" class="form-control" />
+                @*<span asp-validation-for="Image" class="text-danger"></span>*@
+            </div>
+
+             <div class="form-group">
+                <label asp-for="Resume" class="control-label"></label>
+                <input asp-for="Resume" class="form-control" />
+                <span asp-validation-for="Resume" class="text-danger"></span>
+            </div>
+
+              <div class="form-group">
+                <label asp-for="Contenu" class="control-label"></label>
+                <textarea asp-for="Contenu" class="form-control"></textarea>
+                <span asp-validation-for="Contenu" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Créer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retourner à la liste des billets</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

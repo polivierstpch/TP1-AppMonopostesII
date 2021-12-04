@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Blog.ApplicationCore.Entites.Publication>
+
+@{
+    ViewData["Title"] = "Home Page";
+    
+}
+
+
+<div class="row mb-2">
+
+@for (int i=0; i < 2 ; i++){
+       
+     <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">@Model.ElementAt(i).Categorie.Libelle</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" asp-action="posts" asp-route-id="@Model.ElementAt(i).Id" asp-route-urlslug="@Model.ElementAt(i).UrlSlug">@Model.ElementAt(i).Titre</a>
+              </h3>
+              <div class="mb-1 text-muted">@Model.ElementAt(i).DatePublication.ToString("MMM dd")</div>
+              <p class="card-text mb-auto">@Model.ElementAt(i).Resume</p>
+              <a asp-action="post" asp-route-id="@Model.ElementAt(i).Id" asp-route-urlslug="@Model.ElementAt(i).UrlSlug">Continuer à lire</a>
+            </div>
+            <img src="~/images/@Model.ElementAt(i).NomImage" width="100%" alt="Card image cap">
+          </div>
+      </div>
+}   
+</div>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          
+           @foreach(var publication in Model)
+            {
+               
+            <div class="blog-post">
+
+            <h2 class="blog-post-title">@publication.Titre</h2>
+            <p class="blog-post-meta">@publication.DatePublication.ToString("dd MMMM yyyy") par <a href="#">@publication.Auteur.Nom</a></p>
+
+            <p>@publication.Resume</p>
+
+           <a asp-controller="" asp-action="post" asp-route-id="@publication.Id" asp-route-urlslug="@publication.UrlSlug">Continuer à lire</a>
+           </div><!-- /.blog-post -->
+
+            }
+         
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+
+          <div class="p-3">
+            <h4 class="font-italic">Catégories</h4>
+            <ol class="list-unstyled mb-0">
+            @foreach(var item in Model.Select(x=>x.Categorie.Libelle).Distinct())
+            {
+                 <li><a asp-route-categorie="@item">@item</a></li>   
+             }
+           </ol>
+          </div>
+
+        </aside><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+  </main><!-- /.container -->
